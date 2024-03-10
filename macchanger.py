@@ -39,9 +39,7 @@ def going_to_be_anonymus(interface):
         random_mac = generate_random_mac()
         mac_addr_current = check_mac(interface)
         print(f'\033[0;35mCurrent Mac Address: {mac_addr_current}\033[0m')
-        sub.call(['ifconfig', interface, "down"])
         sub.call(['ifconfig', interface, "hw", "ether", random_mac])
-        sub.call(['ifconfig', interface, "up"])
         print(f'\033[0;35mNew Mac Address: {random_mac}\033[0m\n')
         sleep(1)
 
